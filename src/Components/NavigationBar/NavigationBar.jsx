@@ -55,12 +55,12 @@ const NavigationBar = () => {
           {/* Drawer content */}
           <ul className="space-y-2">
             <li>
-              <Link to="/" className="block py-2">
+              <Link to="/" className="block py-2" onClick={toggleDrawer}>
                 Home
               </Link>
             </li>
             <li>
-              <Link to="/league" className="block py-2">
+              <Link to="/league" className="block py-2" onClick={toggleDrawer}>
                 League
               </Link>
             </li>
