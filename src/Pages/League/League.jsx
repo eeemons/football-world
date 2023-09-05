@@ -28,7 +28,7 @@ const League = () => {
       });
   }, []);
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4 min-h-screen">
       <span className="font-bold text-3xl mt-2 text-center">Leagues</span>
       {leagues?.map((league) => {
         return (
