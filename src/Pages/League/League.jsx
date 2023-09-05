@@ -1,13 +1,13 @@
 import React from "react";
 import axios from "axios";
-import { useLayoutEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Competitions from "../../Components/Competitions/Competitions";
 
 const League = () => {
   const [leagues, setLeagues] = useState([]);
   const key = import.meta.env.VITE_API_KEY;
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     axios
       .get(`https://apiv3.apifootball.com/?action=get_countries&APIkey=${key}`)
       .then((response) => {
