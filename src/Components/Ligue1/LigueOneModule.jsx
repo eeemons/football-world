@@ -3,11 +3,11 @@ import axios from "axios";
 import { useLayoutEffect, useState } from "react";
 import Loader from "../Loader/Loader";
 
-const EplModule = () => {
+const LigueOneModule = () => {
   const key = import.meta.env.VITE_API_KEY;
   const [todaysMatches, setTodaysMAtches] = useState([]);
   const [matchAvailability, setMatchAvailability] = useState(true);
-  const [isLoading, setIsloading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   const formatDateToYYMMDD = () => {
     const currentDate = new Date();
@@ -24,16 +24,16 @@ const EplModule = () => {
   useLayoutEffect(() => {
     axios
       .get(
-        `https://apiv3.apifootball.com/?action=get_events&from=${formatDateToYYMMDD()}&to=${formatDateToYYMMDD()}&league_id=152&APIkey=${key}`
+        `https://apiv3.apifootball.com/?action=get_events&from=${formatDateToYYMMDD()}&to=${formatDateToYYMMDD()}&league_id=168&APIkey=${key}`
       )
       .then((response) => {
         if (response.data.error) {
           setMatchAvailability(false);
           setTodaysMAtches(response.data);
-          setIsloading(false);
+          setIsLoading(false);
         } else {
           setTodaysMAtches(response.data);
-          setIsloading(false);
+          setIsLoading(false);
         }
         // console.log(response);
       })
@@ -48,7 +48,7 @@ const EplModule = () => {
         <Loader />
       ) : (
         <div>
-          <h1 className="text-2xl font-semibold">English premiere league</h1>
+          <h1 className="text-2xl font-semibold">Ligue 1</h1>
           {matchAvailability ? (
             todaysMatches?.map((match) => {
               return (
@@ -86,4 +86,4 @@ const EplModule = () => {
   );
 };
 
-export default EplModule;
+export default LigueOneModule;

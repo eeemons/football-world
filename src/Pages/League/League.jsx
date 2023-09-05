@@ -15,11 +15,11 @@ const League = () => {
       .then((response) => {
         const results = response.data.filter(
           (element) =>
-            element.country_id == 44 ||
-            element.country_id == 4 ||
-            element.country_id == 6 ||
-            element.country_id == 3 ||
-            element.country_id == 5
+            element.country_id == 44 || //**England country id
+            element.country_id == 4 || //** Germany country id
+            element.country_id == 6 || //** Spain country id
+            element.country_id == 3 || //**France country id
+            element.country_id == 5 //**Italy country id
         );
         // console.log(results);
         setLeagues(results);
