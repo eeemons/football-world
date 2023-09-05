@@ -8,8 +8,10 @@ const Home = () => {
   return (
     <div className="min-h-screen flex flex-col gap-3">
       <SwiperSlider />
-      <h1 className="text-2xl font-bold">Todays fixture</h1>
-      <EplModule />
+      <div className="mx-3 my-1 lg:mx-20 lg:my-10">
+        <h1 className="text-2xl font-bold">Todays fixture</h1>
+        <EplModule />
+      </div>
     </div>
   );
 };

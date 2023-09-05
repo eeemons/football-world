@@ -2,9 +2,11 @@ import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Competitions from "../../Components/Competitions/Competitions";
+import Loader from "../../Components/Loader/Loader";
 
 const League = () => {
   const [leagues, setLeagues] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const key = import.meta.env.VITE_API_KEY;
 
   useEffect(() => {
@@ -21,6 +23,7 @@ const League = () => {
         );
         // console.log(results);
         setLeagues(results);
+        setIsLoading(false);
         // console.log(leagues);
       })
       .catch((error) => {
@@ -29,23 +32,31 @@ const League = () => {
   }, []);
   return (
     <div className="flex flex-col gap-4 min-h-screen">
-      <span className="font-bold text-3xl mt-2 text-center">Leagues</span>
-      {leagues?.map((league) => {
-        return (
-          <div
-            className="flex flex-col justify-center items-center md:flex-row"
-            key={Math.random()}
-          >
-            <img
-              src={league.country_logo}
-              alt={league.country_name}
-              className="w-[100px] h[50px]"
-            />
-            <h1 className="text-2xl font-bold p-2">{league.country_name}</h1>
-            <Competitions countryId={league.country_id} />
-          </div>
-        );
-      })}
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <div>
+          <span className="font-bold text-3xl mt-2 text-center">Leagues</span>
+          {leagues?.map((league) => {
+            return (
+              <div
+                className="flex flex-col justify-center mb-10 items-center "
+                key={Math.random()}
+              >
+                <img
+                  src={league.country_logo}
+                  alt={league.country_name}
+                  className="w-[100px] h[50px]"
+                />
+                <h1 className="text-2xl font-bold p-2">
+                  {league.country_name}
+                </h1>
+                <Competitions countryId={league.country_id} />
+              </div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 };
