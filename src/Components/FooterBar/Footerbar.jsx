@@ -23,6 +23,7 @@ const Footerbar = () => {
                     <Link
                       to="https://tailwindcss.com/"
                       className="hover:underline"
+                      target="_blank"
                     >
                       Tailwind CSS
                     </Link>
@@ -32,6 +33,7 @@ const Footerbar = () => {
                     <Link
                       to="https://apifootball.com/documentation/"
                       className="hover:underline"
+                      target="_blank"
                     >
                       API Football
                     </Link>
