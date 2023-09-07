@@ -3,7 +3,7 @@ import axios from "axios";
 import { useLayoutEffect, useState } from "react";
 import Loader from "../../Loader/Loader";
 
-const SouthAmericaModule = () => {
+const AfricaCupOfNationModule = () => {
   const key = import.meta.env.VITE_API_KEY;
   const [todaysMatches, setTodaysMAtches] = useState([]);
   const [matchAvailability, setMatchAvailability] = useState(true);
@@ -16,7 +16,7 @@ const SouthAmericaModule = () => {
     const day = currentDate.getDate().toString().padStart(2, "0");
 
     const formattedDate = `${year}-${month}-${day}`;
-    // const formattedDate = "2023-09-08";
+    // const formattedDate = "2023-09-03";
 
     return formattedDate;
   };
@@ -24,7 +24,7 @@ const SouthAmericaModule = () => {
   useLayoutEffect(() => {
     axios
       .get(
-        `https://apiv3.apifootball.com/?action=get_events&from=${formatDateToYYMMDD()}&to=${formatDateToYYMMDD()}&league_id=27&APIkey=${key}`
+        `https://apiv3.apifootball.com/?action=get_events&from=${formatDateToYYMMDD()}&to=${formatDateToYYMMDD()}&league_id=29&APIkey=${key}`
       )
       .then((response) => {
         if (response.data.error) {
@@ -48,7 +48,7 @@ const SouthAmericaModule = () => {
         <Loader />
       ) : (
         <div>
-          <h1 className="text-2xl font-semibold">South American Qualifier</h1>
+          <h1 className="text-2xl font-semibold">Africa cup of nation</h1>
           {matchAvailability ? (
             todaysMatches?.map((match) => {
               return (
@@ -86,4 +86,4 @@ const SouthAmericaModule = () => {
   );
 };
 
-export default SouthAmericaModule;
+export default AfricaCupOfNationModule;
