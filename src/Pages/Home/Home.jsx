@@ -2,7 +2,9 @@ import React from "react";
 import SwiperSlider from "../../Components/SwiperSlider/SwiperSlider";
 import EplModule from "../../Components/EnglishPremiereLeague/EplModule";
 import LigueOneModule from "../../Components/Ligue1/LigueOneModule";
-
+import SerieAModule from "../../Components/SerieA/SerieAModule";
+import LaligaModule from "../../Components/Laliga/LaligaModule";
+import BundesligaModule from "../../Components/Bundesliga/BundesligaModule";
 const Home = () => {
   // const key = import.meta.env.VITE_API_KEY;
 
@@ -13,6 +15,9 @@ const Home = () => {
         <h1 className="text-2xl font-bold">Todays fixture</h1>
         <EplModule />
         <LigueOneModule />
+        <SerieAModule />
+        <LaligaModule />
+        <BundesligaModule />
       </div>
     </div>
   );
