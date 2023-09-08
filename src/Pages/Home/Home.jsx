@@ -11,6 +11,7 @@ import EuropeModule from "../../Components/WorldcupQualifier/Europe/EuropeModule
 import SouthAmericaModule from "../../Components/WorldcupQualifier/SouthAmerica/SouthAmericaModule";
 import AfricaCupOfNationModule from "../../Components/InternationalTournament/AfricaCupOfNation/AfricaCupOfNationModule";
 import EuroQualifierModule from "../../Components/InternationalTournament/Euro/EuroQualifierModule";
+import UCLModule from "../../Components/ChampionsLeague/UCLModule";
 const Home = () => {
   // const key = import.meta.env.VITE_API_KEY;
 
@@ -24,6 +25,7 @@ const Home = () => {
         <SerieAModule />
         <LaligaModule />
         <BundesligaModule />
+        <UCLModule />
         <h1 className="text-2xl font-bold">World cup qualifier</h1>
         <AsiaModule />
         <AfricaModule />
